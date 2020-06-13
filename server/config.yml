@@ -1,0 +1,24 @@
+server:
+  host: "localhost"                     #
+  port: 8080                            #
+  max_size_upload_bytes: 268435456      # in bytes
+  upload_path: "/var/www/share/"        # where uploaded files will be stored
+  # drop_privileges
+  drop_privileges:
+    enable: true                        # false if you don't want this feature
+    user_name: "www-data"               # user name who will run the server
+  # regular upload
+  regular_upload:
+    enable: true                        # false if you don't want this feature
+    url: "/upload"                      #
+  # secure upload
+  secure_upload:
+    enable: true                        # false if you don't want this feature
+    url: "/sec-upload"                  #
+    tmp_dir_length: 16                  # randomized dir value length for each upload
+  # download
+  download:
+    url: "/dl/"                         # the path must end with a '/'
+
+logging:
+  log_every_request: true               #

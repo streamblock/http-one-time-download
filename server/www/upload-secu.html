@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>One Time File Server</title>
+
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link" href="upload">Simple Upload</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="about.html">About</a>
+        </li>
+    </ul>
+
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+
+            <div class="col sm-12 col-md-8 col-lg-6">
+                <h2 class="title"><a href="/">Encrypt & Upload</a></h2>
+
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="uploadFile">
+                    <label class="custom-file-label" for="uploadFile">
+                        <div id="file-placeholder">Choose a file to upload</div>
+                    </label>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="form-group">
+                    <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="password">Password</span>
+                        </div>
+                        <input type="text" id="passwordInput" class="form-control"
+                               placeholder="Enter a password or generate one (recommended)">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="generatePasswordButton"><i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="switchOpenssl" disabled>
+                        <label class="custom-control-label" for="switchOpenssl">OpenSSL file format</label>
+                    </div>
+
+                    <select id="selectCryptoAlgo" class="custom-select">
+                        <option value="pbkdf2-sha256-aes-256-gcm" selected="selected">PBKDF2-SHA256-AES-256-GCM</option>
+                        <option value="pbkdf2-sha256-aes-256-cbc">PBKDF2-SHA256-AES-256-CBC</option>
+                    </select>
+
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="switchDeleteAfterDownload" checked disabled>
+                        <label class="custom-control-label" for="switchDeleteAfterDownload">Delete after download</label>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-outline-dark" id="uploadButton">Encrypt & Upload</button>
+                <button type="button" class="btn btn-outline-danger" id="resetButton" style="display:none"><i class="fas fa-redo"></i> Reset</button>
+
+                <br>
+                <br>
+
+                <div id="dynamicMessages"></div>
+
+                <br>
+                <br>
+
+                <div id="uploadFileStatus"></div>
+
+            </div>
+            <!--end col-->
+        </div><!-- end row -->
+
+        <br>
+        <br>
+
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-sm-12 col-md-8 col-lg-6" id="results">
+
+            </div>
+            <!--end col-->
+        </div><!-- end row -->
+
+    </div><!-- end container -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="static/js/upload-secu.js"></script>
+</body>
+</html>
